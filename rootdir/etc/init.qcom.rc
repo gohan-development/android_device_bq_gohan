@@ -31,6 +31,9 @@ import /vendor/etc/init/hw/init.target.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
 
+    # HAL looks for pn54x but kernel driver uses pn547
+    symlink /dev/pn547 /dev/pn54x
+
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
