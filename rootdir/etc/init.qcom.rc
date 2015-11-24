@@ -376,6 +376,7 @@ on property:persist.env.fastdorm.enabled=true
 service cnd /system/bin/cnd
     class main
     socket cnd stream 660 root inet
+    group root wakelock
 
 service dpmd /system/bin/dpmd
     class main
@@ -397,6 +398,7 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
+    group system wakelock
 
 service tftp_server /system/bin/tftp_server
    class main
@@ -440,11 +442,11 @@ service port-bridge /system/bin/port-bridge /dev/mhi_pipe_32 /dev/ttyGS0
 service qmuxd /system/bin/qmuxd
     class main
     user root
-    group radio audio bluetooth gps qcom_diag
+    group radio audio bluetooth gps wakelock qcom_diag
 
 service netmgrd /system/bin/netmgrd
     class main
-    group system
+    group system wakelock
 
 service ipacm-diag /system/bin/ipacm-diag
     class main
