@@ -778,6 +778,7 @@ on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
     setprop persist.sys.usb.config mass_storage
+    start hvdcp_opti
 
 service mdtpd /system/vendor/bin/mdtpd
     class late_start
@@ -802,6 +803,11 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    group root
+
+service hvdcp_opti /system/bin/hvdcp_opti
+    class main
+    user root
+    group root
 
 service time_daemon /system/bin/time_daemon
    class late_start
