@@ -444,7 +444,8 @@ service qmuxd /system/vendor/bin/qmuxd
 
 service netmgrd /system/vendor/bin/netmgrd
     class main
-    group system wakelock
+    user root
+    group root wifi wakelock radio inet
 
 service ipacm-diag /system/vendor/bin/ipacm-diag
     class main
