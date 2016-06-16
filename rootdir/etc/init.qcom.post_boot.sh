@@ -508,8 +508,7 @@ chown -h system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 # Post-setup services
 case "$target" in
     "msm8952")
-        rm /data/system/perfd/default_values
-        start perfd
+        setprop sys.post_boot.parsed 1
     ;;
 esac
 
