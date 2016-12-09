@@ -332,6 +332,9 @@ on post-fs-data
     mkdir /data/misc/qti-logkit/socket-public/ 2750 system qcom_diag
     mkdir /data/misc/qti-logkit/logdata/ 2750 system shell
 
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
+
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
     write /sys/block/dm-0/queue/read_ahead_kb 128
