@@ -63,6 +63,7 @@ on fs
 
 on late-fs
     # Start bootanim and its dependencies
+    start hwservicemanager
     start surfaceflinger
     start bootanim
     # mount RW partitions which need run fsck
