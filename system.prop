@@ -141,9 +141,6 @@ ro.core_ctl_min_cpu=2
 ro.core_ctl_max_cpu=4
 ro.vendor.extension_library=libqti-perfd-client.so
 
-# Storage
-ro.sdcardfs.enable=true
-
 # Telephony
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
