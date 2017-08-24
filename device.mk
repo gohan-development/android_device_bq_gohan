@@ -231,6 +231,10 @@ PRODUCT_PACKAGES += \
     init.bq.device.rc \
     init.bq.usb.rc
 
+# Rild
+PRODUCT_PACKAGES += \
+    rild_socket
+
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf \
