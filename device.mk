@@ -100,6 +100,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    libcamera_parameters_shim \
     Snap
 
 # Connectivity Engine support (CNE)
