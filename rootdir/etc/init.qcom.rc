@@ -590,4 +590,5 @@ on property:vold.decrypt=trigger_restart_min_framework
     start time_daemon
 
 on property:dev.bootcomplete=1
+    trigger enable-low-power
     setprop sys.io.scheduler "bfq"
