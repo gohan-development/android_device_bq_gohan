@@ -1,5 +1,5 @@
 # ADSP
-bin/adsprpcd
+bin/adsprpcd:vendor/bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
@@ -30,8 +30,8 @@ vendor/lib/libaudioparsers.so
 vendor/lib/libhwdaphal.so
 
 # Bluetooth
-bin/btnvtool
-bin/hci_qcomm_init
+bin/btnvtool:vendor/bin/btnvtool
+bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
 vendor/lib/libbtnv.so
 
 # BQ
@@ -42,7 +42,7 @@ etc/permissions/bq.software.qcom.n.gohan.xml
 etc/permissions/bq.software.qcom.n.xml
 
 # Camera
-bin/mm-qcamera-daemon
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 etc/camera/camera_config.xml
 etc/permissions/bq.software.qcom.camera.full_support.xml
 lib/hw/camera.msm8952.so
@@ -267,10 +267,10 @@ etc/firmware/cpp_firmware_v1_8_0.fw
 etc/firmware/cpp_firmware_v1_10_0.fw
 
 # Charger
-bin/hvdcp_opti
+bin/hvdcp_opti:vendor/bin/hvdcp_opti
 
 # CNE
-bin/cnd
+bin/cnd:vendor/bin/cnd
 etc/cne/SwimConfig.xml
 etc/cne/andsfCne.xml
 etc/permissions/ConnectivityExt.xml
@@ -288,7 +288,7 @@ vendor/lib/libwms.so
 vendor/lib/libwqe.so
 
 # DPM
-bin/dpmd
+bin/dpmd:vendor/bin/dpmd
 etc/dpm/dpm.conf
 etc/dpm/nsrm/NsrmConfiguration.xml
 etc/permissions/com.qti.dpmframework.xml
@@ -303,7 +303,7 @@ vendor/lib/libdpmnsrm.so
 vendor/lib/libdpmtcm.so
 
 # DRM
-bin/qseecomd
+bin/qseecomd:vendor/bin/qseecomd
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/lib-sec-disp.so
 vendor/lib/libdrmfs.so
@@ -342,14 +342,14 @@ lib/libfpnav.so
 lib/libfpservice.so
 
 # FM
-bin/fmconfig
-bin/fm_qsoc_patches
+bin/fmconfig:vendor/bin/fmconfig
+bin/fm_qsoc_patches:vendor/bin/fm_qsoc_patches
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8952.so
 
 # GPS
-bin/loc_launcher
+bin/loc_launcher:vendor/bin/loc_launcher
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
@@ -409,7 +409,7 @@ etc/firmware/a530_pfp.fw
 etc/firmware/a530_pm4.fw
 
 # IPA
-bin/ipacm-diag
+bin/ipacm-diag:vendor/bin/ipacm-diag
 
 # Keymaster
 vendor/lib/hw/keystore.msm8952.so
@@ -454,13 +454,13 @@ vendor/lib/libconnctrl.so
 vendor/lib/libQtiTether.so
 
 # Perf
-bin/msm_irqbalance
+bin/msm_irqbalance:vendor/bin/msm_irqbalance
 vendor/bin/perfd
 vendor/lib/libqti-perfd-client.so
 
 # Peripheral manager
-bin/pm-proxy
-bin/pm-service
+bin/pm-proxy:vendor/bin/pm-proxy
+bin/pm-service:vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 
 # Postprocessing
@@ -473,7 +473,7 @@ vendor/lib/libmm-qdcm-diag.so
 vendor/lib/libmm-qdcm.so
 
 # QMI
-bin/irsc_util
+bin/irsc_util:vendor/bin/irsc_util
 etc/data/dsi_config.xml
 etc/data/netmgr_config.xml
 etc/data/qmi_config.xml
@@ -497,10 +497,10 @@ vendor/lib/libsmemlog.so
 
 # Radio
 -app/shutdownlistener/shutdownlistener.apk
-bin/netmgrd
-bin/qmuxd
-bin/radish
-bin/rmt_storage
+bin/netmgrd:vendor/bin/netmgrd
+bin/qmuxd:vendor/bin/qmuxd
+bin/radish:vendor/bin/radish
+bin/rmt_storage:vendor/bin/rmt_storage
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
 -framework/qcnvitems.jar
@@ -520,7 +520,7 @@ vendor/lib/libxml.so
 vendor/qcril.db
 
 # Sensors
-bin/sensors.qcom
+bin/sensors.qcom:vendor/bin/sensors.qcom
 lib/hw/sensors.msm8952.so
 vendor/lib/hw/activity_recognition.msm8952.so
 vendor/lib/libsensor1.so
@@ -541,7 +541,7 @@ vendor/lib/libthermalioctl.so
 
 # Time services
 -app/TimeService/TimeService.apk
-bin/time_daemon
+bin/time_daemon:vendor/bin/time_daemon
 -vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
@@ -550,4 +550,4 @@ etc/firmware/synaptics_firmware_truly_auo.img
 etc/firmware/synaptics_firmware_truly_lg.img
 
 # WLAN
-bin/wcnss_service
+bin/wcnss_service:vendor/bin/wcnss_service

@@ -1,4 +1,4 @@
-[system/bin/pm-service]
+[system/vendor/bin/pm-service]
 mode: 0755
 user: AID_SYSTEM
 group: AID_SYSTEM
