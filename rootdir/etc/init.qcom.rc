@@ -440,7 +440,7 @@ service port-bridge /system/vendor/bin/port-bridge /dev/mhi_pipe_32 /dev/ttyGS0
 service qmuxd /system/vendor/bin/qmuxd
     class main
     user root
-    group radio audio bluetooth gps wakelock qcom_diag
+    group radio audio bluetooth gps wakelock oem_2950
 
 service netmgrd /system/vendor/bin/netmgrd
     class main
@@ -508,7 +508,7 @@ service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
 service loc_launcher /system/vendor/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
-    group gps inet qcom_diag wifi
+    group gps inet oem_2950 wifi
 
 on property:crypto.driver.load=1
      insmod /system/lib/modules/qce.ko
