@@ -110,10 +110,6 @@ USE_PREFERRED_CAMERA_FORMAT := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
-# CMHW
-BOARD_HARDWARE_CLASS := device/bq/gohan/cmhw/src
-TARGET_TAP_TO_WAKE_NODE := "/sys/devices/soc.0/7af6000.i2c/i2c-6/6-0020/input/input0/wake_gesture"
-
 # CNE
 BOARD_USES_QCNE := true
 
@@ -180,6 +176,10 @@ TARGET_PROVIDES_KEYMASTER := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
+
+# LineageHW
+BOARD_HARDWARE_CLASS := device/bq/gohan/lineagehw/src
+TARGET_TAP_TO_WAKE_NODE := "/sys/devices/soc.0/7af6000.i2c/i2c-6/6-0020/input/input0/wake_gesture"
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
