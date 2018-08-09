@@ -412,6 +412,7 @@ bin/ipacm-diag
 vendor/lib/hw/keystore.msm8952.so
 
 # Media
+lib/libstagefright_soft_flacdec.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libOmxAacDec.so
