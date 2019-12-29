@@ -4,7 +4,7 @@
    "target_path": "device/qcom/common"
  },
  {
-   "repository":"android_kernel_bq_msm8976",
+   "repository":"aquaris-x5-plus",
    "target_path":"kernel/bq/msm8976"
  }
 ]
