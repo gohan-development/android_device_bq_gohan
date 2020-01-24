@@ -1,0 +1,29 @@
+import init.bq.device.rc
+
+on boot
+    chmod 0666 /dev/pn547
+    chown nfc nfc /dev/pn547
+
+    chmod 0644 /dev/vfsspi
+    chown system system /dev/vfsspi
+    chmod 0644 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+
+    # Tap To Wake
+    chmod 0660 /sys/devices/soc.0/7af6000.i2c/i2c-6/6-0020/input/input0/wake_gesture
+    chown root system /sys/devices/soc.0/7af6000.i2c/i2c-6/6-0020/input/input0/wake_gesture
+
+    # Notification LED
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/blue/blink
+    chown system system /sys/class/leds/green/blink
+
+service gx_fpd /system/bin/gx_fpd
+    class late_start
+    user system
+    group system
+    seclabel u:r:gx_fpd:s0
+
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system

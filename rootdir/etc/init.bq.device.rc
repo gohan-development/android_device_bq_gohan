@@ -1,0 +1,27 @@
+on property:persist.sys.runin=enable
+    write /sys/class/power_supply/battery/device/BatteryTestStatus 1
+    write /sys/devices/soc.0/qpnp-smbcharger-17/BatteryTestStatus 1
+
+on property:persist.sys.runin=disable
+    write /sys/class/power_supply/battery/device/BatteryTestStatus 0
+    write /sys/devices/soc.0/qpnp-smbcharger-17/BatteryTestStatus 0
+
+on boot
+    #Vibrator intensity modifier
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/wf_s0
+    chown system system /sys/class/timed_output/vibrator/wf_s1
+    chown system system /sys/class/timed_output/vibrator/wf_s2
+    chown system system /sys/class/timed_output/vibrator/wf_s3
+    chown system system /sys/class/timed_output/vibrator/wf_s4
+    chown system system /sys/class/timed_output/vibrator/wf_s5
+    chown system system /sys/class/timed_output/vibrator/wf_s6
+    chown system system /sys/class/timed_output/vibrator/wf_s7
+    chown system system /sys/class/timed_output/vibrator/wf_update_now
+
+service set_sn /system/bin/adjust_serialno setsn
+    disable
+    oneshot
+
+on property:sys.sn_set=1
+    start set_sn
