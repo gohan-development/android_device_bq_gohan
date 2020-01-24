@@ -211,9 +211,12 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.qcom \
+    fstab.qcom
+
+PRODUCT_PACKAGES += \
+    init.qcom.sh \
     init.qcom.bt.sh \
-    init.qcom.sh
+    init.qcom.usb.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.rc \
@@ -221,6 +224,11 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.target.rc \
     ueventd.qcom.rc
+
+PRODUCT_PACKAGES += \
+    init.bq.target.rc \
+    init.bq.device.rc \
+    init.bq.usb.rc
 
 # Sensors
 PRODUCT_COPY_FILES += \

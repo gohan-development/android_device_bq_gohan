@@ -185,25 +185,6 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
-    write /sys/module/rmnet_usb/parameters/rmnet_data_init 1
-    chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
-
-    #Vibrator intensity modifier
-    chown system system /sys/class/timed_output/vibrator/wf_s0
-    chown system system /sys/class/timed_output/vibrator/wf_s1
-    chown system system /sys/class/timed_output/vibrator/wf_s2
-    chown system system /sys/class/timed_output/vibrator/wf_s3
-    chown system system /sys/class/timed_output/vibrator/wf_s4
-    chown system system /sys/class/timed_output/vibrator/wf_s5
-    chown system system /sys/class/timed_output/vibrator/wf_s6
-    chown system system /sys/class/timed_output/vibrator/wf_s7
-    chown system system /sys/class/timed_output/vibrator/wf_update_now
-
-    # Notification LED
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/green/blink
-    chown system system /sys/class/leds/blue/blink
-
 # msm specific files that need to be created on /data
 on post-fs-data
     # Create directory for TZ Apps
@@ -305,6 +286,21 @@ on post-fs-data
     #Create folder for mm-qcamera-daemon
     mkdir /data/camera 0770 media camera
 
+    #Create FM dir for patchdownloader
+    mkdir /data/misc/fm 0770 system system
+    chmod 0770 /data/misc/fm
+
+    # Create directory for fm_radio
+    mkdir /data/misc/fm_radio 0770 system system
+
+    # RIDL data
+    mkdir /data/misc/SelfHost/ 0710 system shell
+    mkdir /data/misc/SelfHost/QCLogs/ 2750 system shell
+    mkdir /data/misc/SelfHost/QCLogs/temp/ 0700 system shell
+    mkdir /data/misc/SelfHost/storage/ 0700 system shell
+    mkdir /data/misc/SelfHost/Running/ 2750 system shell
+    mkdir /data/misc/SelfHost/socket/ 2770 system system
+
     #Create PERFD deamon related dirs
     mkdir /data/misc/perfd 0755 root system
     chmod 2755 /data/misc/perfd
@@ -319,21 +315,6 @@ on post-fs-data
     mkdir /persist/sensors 0775 system system
     chmod 664 /persist/sensors/sensors_settings
     chown system root /persist/sensors/sensors_settings
-
-    # RIDL data
-    mkdir /data/misc/SelfHost/ 0710 system shell
-    mkdir /data/misc/SelfHost/QCLogs/ 2750 system shell
-    mkdir /data/misc/SelfHost/QCLogs/temp/ 0700 system shell
-    mkdir /data/misc/SelfHost/storage/ 0700 system shell
-    mkdir /data/misc/SelfHost/Running/ 2750 system shell
-    mkdir /data/misc/SelfHost/socket/ 2770 system system
-
-    # Create FM dir for patchdownloader
-    mkdir /data/misc/fm 0770 system system
-    chmod 0770 /data/misc/fm
-
-    # Create directory for fm_radio
-    mkdir /data/misc/fm_radio 0770 system system
 
     # Mark the copy complete flag to not completed
     write /data/misc/radio/copy_complete 0
@@ -387,9 +368,9 @@ on property:ro.bluetooth.ftm_enabled=true
     start ftmd
 
 on property:vold.decrypt=trigger_restart_framework
+    start config_bt_addr
     start config_bluetooth
     start wcnss-service
-    start config_bt_addr
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
@@ -428,11 +409,6 @@ service config_bt_addr /system/bin/btnvtool -O
     class core
     user bluetooth
     group bluetooth radio
-    oneshot
-
-service qcom-sh /system/bin/sh /init.qcom.sh
-    class late_start
-    user root
     oneshot
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
@@ -550,8 +526,13 @@ service loc_launcher /system/bin/loc_launcher
     group gps inet qcom_diag wifi
 
 on property:crypto.driver.load=1
-    insmod /system/lib/modules/qce.ko
-    insmod /system/lib/modules/qcedev.ko
+     insmod /system/lib/modules/qce.ko
+     insmod /system/lib/modules/qcedev.ko
+
+service qcom-sh /system/bin/sh /init.qcom.sh
+    class late_start
+    user root
+    oneshot
 
 service atfwd /system/bin/ATFWD-daemon
     class late_start
@@ -602,27 +583,11 @@ service msm_irqbal_lb /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqba
     user root
     group root
     disabled
-    writepid /dev/cpuset/system-background/tasks
-
-service set_sn /system/bin/adjust_serialno setsn
-    disable
-    oneshot
-
-on property:sys.sn_set=1
-    start set_sn
 
 service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     class late_start
     user system
     group system
-
-on property:persist.sys.runin=enable
-    write /sys/class/power_supply/battery/device/BatteryTestStatus 1
-    write /sys/devices/soc.0/qpnp-smbcharger-ed730800/BatteryTestStatus 1
-
-on property:persist.sys.runin=disable
-    write /sys/class/power_supply/battery/device/BatteryTestStatus 0
-    write /sys/devices/soc.0/qpnp-smbcharger-ed730800/BatteryTestStatus 0
 
 # Seemp health service
 service seemp_healthd /system/vendor/bin/seemp_healthd
