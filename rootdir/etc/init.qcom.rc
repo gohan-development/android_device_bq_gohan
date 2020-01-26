@@ -468,7 +468,6 @@ on property:ro.bluetooth.ftm_enabled=true
     start ftmd
 
 on property:vold.decrypt=trigger_restart_framework
-    start qcom-c_main-sh
     start config_bluetooth
     start wcnss-service
     start config_bt_addr
