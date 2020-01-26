@@ -216,9 +216,10 @@ PRODUCT_PACKAGES += \
     init.qcom.sh
 
 PRODUCT_PACKAGES += \
+    init.qcom.rc \
     init.qcom.power.rc \
     init.qcom.usb.rc \
-    init.qcom.rc \
+    init.target.rc \
     ueventd.qcom.rc
 
 # Sensors

@@ -27,21 +27,14 @@
 
 import init.qcom.power.rc
 import init.qcom.usb.rc
+import init.target.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
 
-    mkdir /firmware 0771 system system
-    mkdir /system 0777 root root
-    symlink /data/tombstones /tombstones
-    mkdir /dsp 0771 media media
-
-
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
-
-    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
     # Support legacy path
     symlink /sdcard /storage/sdcard0
@@ -59,6 +52,7 @@ on early-boot
     write /sys/kernel/codec_type/boot ${persist.sys.external}
     write /sys/kernel/boot_adsp/boot 1
     chown root audio /sys/kernel/boot_adsp/boot
+
     # SSR Setup
     write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
     write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
@@ -108,20 +102,6 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/modes
     chmod 0664 /sys/class/graphics/fb0/mode
 
-
-# access permission for secure touch
-    chmod 0660 /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch_enable
-    chmod 0440 /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch
-    chmod 0660 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch_enable
-    chmod 0440 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch
-    chown system drmrpc /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch_enable
-    chown system drmrpc /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch
-    chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch_enable
-    chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch
-    write /proc/sys/kernel/sched_boost 1
-    write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/fw_name PR1702898-s3528t_00260005_00380008.img
-    write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/update_fw 1
-
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -146,9 +126,6 @@ on boot
     chmod 0755 /system/bin/ip
 
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
-
-    start rmt_storage
-    insmod /system/lib/modules/adsprpc.ko
 
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
@@ -211,13 +188,7 @@ on boot
     write /sys/module/rmnet_usb/parameters/rmnet_data_init 1
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
-    chmod 666 /dev/pn547
-    chown system system /dev/pn547
-    chmod 0644 /dev/vfsspi
-    chown system system /dev/vfsspi
-    chmod 0644 /dev/goodix_fp
-    chown system system /dev/goodix_fp
-
+    #Vibrator intensity modifier
     chown system system /sys/class/timed_output/vibrator/wf_s0
     chown system system /sys/class/timed_output/vibrator/wf_s1
     chown system system /sys/class/timed_output/vibrator/wf_s2
@@ -227,46 +198,14 @@ on boot
     chown system system /sys/class/timed_output/vibrator/wf_s6
     chown system system /sys/class/timed_output/vibrator/wf_s7
     chown system system /sys/class/timed_output/vibrator/wf_update_now
+
     # Notification LED
     chown system system /sys/class/leds/red/blink
     chown system system /sys/class/leds/green/blink
     chown system system /sys/class/leds/blue/blink
 
-on fs
-    wait /dev/block/bootdevice
-    mount_all fstab.qcom
-
-    # Keeping following partitions outside fstab file. As user may not have
-    # these partition flashed on the device. Failure to mount any partition in fstab file
-    # results in failure to launch late-start class.
-
-    wait /dev/block/bootdevice/by-name/cache
-    mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev barrier=1
-
-    wait /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
-    mkdir /persist/data 0700 system system
-    restorecon_recursive /persist
-
-    wait /dev/block/bootdevice/by-name/dsp
-    mount ext4 /dev/block/bootdevice/by-name/dsp /dsp nosuid nodev barrier=1
-    restorecon_recursive   /dsp
-
-    wait /dev/block/bootdevice/by-name/modem
-    mount vfat /dev/block/bootdevice/by-name/modem /firmware ro context=u:object_r:firmware_file:s0,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
-    #write /sys/kernel/boot_adsp/boot 1
-
 # msm specific files that need to be created on /data
 on post-fs-data
-    mkdir /data/tombstones 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
-    mkdir /persist/data/sfs 0700 system system
-    mkdir /persist/data/tz 0700 system system
-    mkdir /data/misc/audio_pp 0771 media audio
-
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
@@ -416,10 +355,6 @@ on post-fs-data
     mkdir /data/misc/qti-logkit/socket-privileged/ 2770 system system
     mkdir /data/misc/qti-logkit/socket-public/ 2750 system qcom_diag
     mkdir /data/misc/qti-logkit/logdata/ 2750 system shell
-
-    # Tap To Wake
-    chown root system /sys/devices/soc.0/7af6000.i2c/i2c-6/6-0020/input/input0/wake_gesture
-    chmod 0660 /sys/devices/soc.0/7af6000.i2c/i2c-6/6-0020/input/input0/wake_gesture
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
@@ -669,76 +604,6 @@ service msm_irqbal_lb /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqba
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service gx_fpd /system/bin/gx_fpd
-    class late_start
-    user system
-    group system
-    seclabel u:r:gx_fpd:s0
-
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-
-#start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
-   class late_start
-   user camera
-   group camera system inet input graphics
-   writepid /dev/cpuset/system-background/tasks
-
-service adsprpcd /system/bin/adsprpcd
-    class main
-    user media
-    group media
-
-service per_mgr /system/bin/pm-service
-    class core
-    user system
-    group system
-
-service per_proxy /system/bin/pm-proxy
-    class core
-    user system
-    group system
-    disabled
-
-on property:init.svc.per_mgr=running
-    start per_proxy
-
-on property:sys.shutdown.requested=*
-    stop per_proxy
-
-service ppd /system/vendor/bin/mm-pp-daemon
-    class late_start
-    disabled
-    user system
-    socket pps stream 0660 system system
-    group system graphics
-
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
-
-on property:init.svc.surfaceflinger=restarting
-    stop ppd
-
-on property:init.svc.zygote=stopped
-    stop ppd
-
-on property:init.svc.zygote=running
-    start ppd
-
-on property:init.svc.zygote=restarting
-    stop ppd
-
-service wcnss-service /system/bin/wcnss_service
-   class late_start
-   user system
-   group system wifi radio
-   oneshot
-
 service set_sn /system/bin/adjust_serialno setsn
     disable
     oneshot
@@ -764,51 +629,6 @@ service seemp_healthd /system/vendor/bin/seemp_healthd
     class late_start
     user system
     group system
-
-on charger
-    wait /dev/block/bootdevice/by-name/system
-    mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    setprop persist.sys.usb.config mass_storage
-    start hvdcp_opti
-
-service mdtpd /system/vendor/bin/mdtpd
-    class late_start
-    user root
-    group system radio drmrpc
-
-service qseecomd /system/bin/qseecomd
-   class core
-   user root
-   group root
-
-service perfd /system/vendor/bin/perfd
-   class main
-   user root
-   disabled
-   writepid /dev/cpuset/system-background/tasks
-
-service thermal-engine /system/vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   group root
-
-service hvdcp_opti /system/bin/hvdcp_opti
-    class main
-    user root
-    group root
-
-service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
-
-service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
 
 on property:vold.decrypt=trigger_restart_min_framework
     start time_daemon
