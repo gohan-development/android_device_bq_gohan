@@ -659,17 +659,6 @@ service charger /charger
     group graphics system
     seclabel u:r:healthd:s0
 
-service hvdcp /system/bin/hvdcp
-    class main
-    user root
-    group root
-
-on property:persist.usb.hvdcp.detect=true
-    start hvdcp
-
-on property:persist.usb.hvdcp.detect=false
-    stop hvdcp
-
 service qbcharger /charger -m 1
     disabled
     oneshot
@@ -788,7 +777,6 @@ service seemp_healthd /system/vendor/bin/seemp_healthd
 on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    start hvdcp
     setprop persist.sys.usb.config mass_storage
 
 service mdtpd /system/vendor/bin/mdtpd
