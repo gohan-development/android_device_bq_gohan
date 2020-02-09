@@ -25,7 +25,6 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import init.qcom.power.rc
 import init.qcom.usb.rc
 import init.target.rc
 
@@ -113,6 +112,7 @@ on boot
     chmod 2770 /dev/socket/qmux_gps
 
     mkdir /persist/drm 0770 system system
+    mkdir /persist/alarm 0770 system system
     mkdir /persist/misc 0770 system system
     mkdir /persist/bluetooth 0770 bluetooth bluetooth
     mkdir /persist/time 0770 system system
@@ -302,8 +302,6 @@ on post-fs-data
     mkdir /data/misc/SelfHost/socket/ 2770 system system
 
     #Create PERFD deamon related dirs
-    mkdir /data/misc/perfd 0755 root system
-    chmod 2755 /data/misc/perfd
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
 
@@ -534,6 +532,12 @@ service qcom-sh /system/bin/sh /init.qcom.sh
     user root
     oneshot
 
+service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
+    class late_start
+    user root
+    disabled
+    oneshot
+
 service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
@@ -541,6 +545,7 @@ service atfwd /system/bin/ATFWD-daemon
     group system radio
 
 on property:sys.boot_completed=1
+    start qcom-post-boot
     start atfwd
 
 service hostapd /system/bin/hostapd -dd /data/misc/wifi/hostapd.conf
@@ -597,3 +602,6 @@ service seemp_healthd /system/vendor/bin/seemp_healthd
 
 on property:vold.decrypt=trigger_restart_min_framework
     start time_daemon
+
+on property:dev.bootcomplete=1
+    setprop sys.io.scheduler "bfq"
