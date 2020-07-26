@@ -104,13 +104,6 @@ persist.media.treble_omx=false
 # NFC
 ro.hardware.nfc_nci
 
-# GPS
-persist.mot.gps.conf.from.sim=true
-persist.mot.gps.smart_battery=1
-persist.mot.gps.assisted=false
-persist.gps.qc_nlp_in_use=0
-ro.pip.gated=0
-
 # Perf
 ro.core_ctl_min_cpu=2
 ro.core_ctl_max_cpu=4
