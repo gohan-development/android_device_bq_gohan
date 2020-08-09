@@ -83,6 +83,7 @@ ro.opengles.version=196610
 # Fingerprint
 persist.qfp=false
 persist.dpm.feature=0
+ro.hardware.fingerprint=goodix
 
 # Factory Reset Protection
 ro.frp.pst=/dev/block/bootdevice/by-name/config
