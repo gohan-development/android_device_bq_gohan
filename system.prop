@@ -46,13 +46,17 @@ ro.qualcomm.bluetooth.opp=true
 ro.qualcomm.bluetooth.pbap=true
 
 # Camera
-persist.camera.HAL3.enabled=1
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk
-ro.version.camera.tuning=2.6.0-56f7152-2c7658b-ae10ec7
+camera.disable_zsl_mode=1
 camera.display.umax=1920x1080
 camera.display.lmax=1280x720
-media.camera.ts.monotonic=1
-camera.lowpower.record.enable=1
+persist.camera.HAL3.enabled=1
+vidc.dec.downscalar_width=1920
+vidc.dec.downscalar_height=1088
+vidc.dec.disable.split.cpu=1
+vidc.enc.dcvs.extra-buff-count=2
+vidc.enc.disable_bframes=1
+vidc.enc.disable_pframes=1
+persist.vendor.qti.telephony.vt_cam_interface=1
 
 # CNE/DPM
 persist.cne.feature=1
