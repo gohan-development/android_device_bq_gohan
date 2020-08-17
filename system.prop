@@ -71,7 +71,6 @@ ro.config.zram=true
 ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=false
 persist.data.mode=concurrent
-persist.data.iwlan.enable=true
 
 # Display
 debug.sf.hw=1
@@ -149,6 +148,10 @@ persist.fd.scron.timer=5000
 # Time services
 persist.timed.enable=true
 
+# Usb
+persist.sys.usb.config.extra=none
+
 # Wi-fi
 net.tcp.2g_init_rwnd=10
 wifi.interface=wlan0
+wifi.direct.interface=p2p0
