@@ -104,10 +104,11 @@ BLUETOOTH_HCI_USE_MCT := true
 # Camera
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
+USE_PREFERRED_CAMERA_FORMAT := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-        /system/bin/mm-qcamera-daemon=23
+        /system/bin/mm-qcamera-daemon=25
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
