@@ -44,6 +44,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lineage.build.vendor_security_patch=2018-09-01
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="gohan-user 7.1.1 NMF26F 2.6.0_20180628-1433 release-keys"
+    PRIVATE_BUILD_DESC="gohan-user 7.1.1 NMF26F 684 release-keys"
 
-BUILD_FINGERPRINT := bq/Aquaris_X5_Plus/Aquaris_X5_Plus:7.1.1/NMF26F/676:user/release-keys
+BUILD_FINGERPRINT := bq/Aquaris_X5_Plus/Aquaris_X5_Plus:7.1.1/NMF26F/684:user/release-keys
