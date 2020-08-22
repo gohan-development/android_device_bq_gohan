@@ -388,10 +388,10 @@ service dpmd /vendor/bin/dpmd
     group system readproc
 
 # FM enable/disable triggers
-on property:hw.fm.init=1
+on property:vendor.hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
-on property:hw.fm.init=0
+on property:vendor.hw.fm.init=0
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
