@@ -263,6 +263,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:s:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
     $(LOCAL_PATH)/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
 
+# Media / StagefrightCodec 2.0
+PRODUCT_PACKAGES += \
+    libstagefright_ccodec
+
 # Netutils
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
