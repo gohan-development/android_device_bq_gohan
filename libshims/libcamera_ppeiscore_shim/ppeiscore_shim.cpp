@@ -48,3 +48,8 @@ extern "C" void _ZN7android20DisplayEventReceiverC1ENS_16ISurfaceComposer11Vsync
 extern "C" void _ZN7android20DisplayEventReceiverC1Ev() {
     _ZN7android20DisplayEventReceiverC1ENS_16ISurfaceComposer11VsyncSourceE;
 }
+
+// android::Fence::~Fence()
+extern "C" void _ZN7android5FenceD1Ev() {
+  // no-op, the explicit destructor was replaced with = default;
+}
