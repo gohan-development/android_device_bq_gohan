@@ -134,7 +134,7 @@ PRODUCT_COPY_FILES += \
 
 # ConfigStore
 PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.0-service
+    android.hardware.configstore@1.1-service
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
