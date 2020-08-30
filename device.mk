@@ -250,8 +250,7 @@ PRODUCT_COPY_FILES += \
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
-    Tag \
-    nfc_nci.msm8952 \
+    Tag
 
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \

@@ -439,6 +439,7 @@ bin/adjust_serialno
 
 # NFC
 vendor/firmware/libpn547_fw.so
+-vendor/lib/hw/nfc_nci.msm8952.so|e18da60fd7b21ff2f887934a6c90ba1651c4ed2b
 
 # Network
 -priv-app/QtiTetherService/QtiTetherService.apk
