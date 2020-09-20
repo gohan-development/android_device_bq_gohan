@@ -141,6 +141,8 @@ TARGET_USES_ION := true
 TARGET_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
 VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
+TARGET_USES_COLOR_METADATA := true
+TARGET_USE_COLOR_MANAGEMENT := true
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
