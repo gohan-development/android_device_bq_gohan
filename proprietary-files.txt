@@ -87,6 +87,7 @@ vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
 vendor/lib/libmmcamera_imglib.so
+vendor/lib/libmmcamera_imx219_cmb104.so
 vendor/lib/libmmcamera_imx219_d8n03d.so
 vendor/lib/libmmcamera_imx298.so
 vendor/lib/libmmcamera_imx298_cmb087qr.so
@@ -138,6 +139,7 @@ vendor/lib/libmmcamera_thread_services.so
 vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_trueportrait_lib.so
+vendor/lib/libmmcamera_truly_imx219_cmb104_eeprom.so
 vendor/lib/libmmcamera_truly_imx298_cmb087qr_eeprom.so
 vendor/lib/libmmcamera_tuning_lookup.so
 vendor/lib/libmmcamera_tuning.so
@@ -162,9 +164,36 @@ vendor/lib/libactuator_bu64297.so
 vendor/lib/libactuator_dw9800w_cmb087qr.so
 
 # Camera chromatix
+etc/camera/imx219_cmb104_chromatix.xml
 etc/camera/imx219_d8n03d_chromatix.xml
 etc/camera/imx298_chromatix.xml
 etc/camera/imx298_cmb087qr_chromatix.xml
+vendor/lib/libchromatix_imx219_cmb104_a3_default_preview.so
+vendor/lib/libchromatix_imx219_cmb104_a3_default_video.so
+vendor/lib/libchromatix_imx219_cmb104_a3_hfr_120.so
+vendor/lib/libchromatix_imx219_cmb104_a3_hfr_60.so
+vendor/lib/libchromatix_imx219_cmb104_a3_hfr_90.so
+vendor/lib/libchromatix_imx219_cmb104_common.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_ds_chromatix.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_hfr_120.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_hfr_60.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_hfr_90.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_liveshot.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_preview.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_snapshot.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_us_chromatix.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_video_full.so
+vendor/lib/libchromatix_imx219_cmb104_cpp_video.so
+vendor/lib/libchromatix_imx219_cmb104_hfr_120.so
+vendor/lib/libchromatix_imx219_cmb104_hfr_60.so
+vendor/lib/libchromatix_imx219_cmb104_hfr_90.so
+vendor/lib/libchromatix_imx219_cmb104_liveshot.so
+vendor/lib/libchromatix_imx219_cmb104_postproc.so
+vendor/lib/libchromatix_imx219_cmb104_preview.so
+vendor/lib/libchromatix_imx219_cmb104_snapshot.so
+vendor/lib/libchromatix_imx219_cmb104_video_full.so
+vendor/lib/libchromatix_imx219_cmb104_zsl_preview.so
+vendor/lib/libchromatix_imx219_cmb104_zsl_video.so
 vendor/lib/libchromatix_imx219_d8n03d_a3_default_preview.so
 vendor/lib/libchromatix_imx219_d8n03d_a3_default_video.so
 vendor/lib/libchromatix_imx219_d8n03d_a3_hfr_120.so
