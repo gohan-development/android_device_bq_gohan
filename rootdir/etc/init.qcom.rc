@@ -370,7 +370,6 @@ on property:ro.bluetooth.ftm_enabled=true
     start ftmd
 
 on property:vold.decrypt=trigger_restart_framework
-    start config_bt_addr
     start config_bluetooth
     start wcnss-service
 
@@ -408,12 +407,6 @@ service rmt_storage /system/vendor/bin/rmt_storage
 service tftp_server /system/vendor/bin/tftp_server
    class main
    user root
-
-service config_bt_addr /system/vendor/bin/btnvtool -O
-    class core
-    user bluetooth
-    group bluetooth radio
-    oneshot
 
 service hciattach /system/vendor/bin/init.qcom.bt.sh
     seclabel u:r:bluetooth_loader:s0

@@ -30,7 +30,6 @@ vendor/lib/libaudioparsers.so
 vendor/lib/libhwdaphal.so
 
 # Bluetooth
-bin/btnvtool:vendor/bin/btnvtool
 bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
 vendor/lib/libbtnv.so
 
