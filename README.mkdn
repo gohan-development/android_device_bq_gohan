@@ -21,4 +21,4 @@ Camera  | Primary: 16 MP, f/2.0, phase detection autofocus, dual-LED (dual tone)
 
 Copyright (C) 2017 The LineageOS Project.
 
-![Aquaris X5 Plus](https://it-bqcom15-media.s3.amazonaws.com/prod/images/200_200/6/7/a/d/67ad2f4be52cca13f3830f6793d466bbdf2fa3a5.jpg "BQ Aquaris X5 Plus")
+![Aquaris X5 Plus](https://www.discoazul.com/uploads/media/images/bq-aquaris-x5-plus-32gb-3gb-ram-gris-antracita-1.jpg "BQ Aquaris X5 Plus")
