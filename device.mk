@@ -215,7 +215,8 @@ PRODUCT_PACKAGES += \
     nfc_nci.pn54x.default
 
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-impl
+    android.hardware.nfc@1.0-impl \
+    android.hardware.nfc@1.0-service
 
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
