@@ -191,6 +191,8 @@ TARGET_TAP_TO_WAKE_NODE := "/sys/devices/soc.0/7af6000.i2c/i2c-6/6-0020/input/in
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
+BOARD_NFC_HAL_SUFFIX := msm8952
+BOARD_NFC_DEVICE := "/dev/pn547"
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true

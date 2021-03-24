@@ -226,7 +226,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
-    nfc_nci.pn54x.default
+    nfc_nci.msm8952
 
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \
