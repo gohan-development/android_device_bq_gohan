@@ -23,7 +23,3 @@ service gx_fpd /system/bin/gx_fpd
     user system
     group system
     seclabel u:r:gx_fpd:s0
-
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
