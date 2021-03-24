@@ -131,7 +131,7 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 TARGET_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
-
+VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
