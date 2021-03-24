@@ -14,4 +14,8 @@
  * limitations under the License.
  */
 
-void _ZN7android20DisplayEventReceiverC1Ev() {}
+extern void _ZN7android20DisplayEventReceiverC1ENS_16ISurfaceComposer11VsyncSourceE();
+
+void _ZN7android20DisplayEventReceiverC1Ev() {
+    _ZN7android20DisplayEventReceiverC1ENS_16ISurfaceComposer11VsyncSourceE;
+}
