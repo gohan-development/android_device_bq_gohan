@@ -247,6 +247,7 @@ PRODUCT_PACKAGES += \
 # Qualcomm dependencies
 PRODUCT_PACKAGES += \
     librmnetctl \
+    libprotobuf-cpp-full \
     libtinyxml \
     libxml2
 
