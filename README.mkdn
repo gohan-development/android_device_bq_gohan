@@ -16,8 +16,8 @@ Storage | 16GB/32GB
 MicroSD | Up to 32GB
 Battery | Non-removable Li-Po 3100 mAh battery
 Display | 1920x1080 pixels, 5.0 inches (~442 ppi pixel density)
-Camera  | Primary: 16 MP, f/2.0, phase detection autofocus, dual-LED (dual tone) flash
-	| Secondary: 8 MP, f/2.0, 1080p
+Back Camera | 16 MP, f/2.0, phase detection autofocus, dual-LED (dual tone) flash
+Front Camera | 8 MP, f/2.0, 1080p
 
 Copyright (C) 2017 The LineageOS Project.
 
