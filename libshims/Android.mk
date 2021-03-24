@@ -69,3 +69,16 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+    libcamera_ppeiscore_shim/ppeiscore_shim.cpp
+
+LOCAL_SHARED_LIBRARIES := libgui libui
+LOCAL_C_INCLUDES := frameworks/native/include
+LOCAL_MODULE := libcamera_ppeiscore_shim
+LOCAL_MODULE_TAGS := optional
+LOCAL_MULTILIB := 32
+
+include $(BUILD_SHARED_LIBRARY)
