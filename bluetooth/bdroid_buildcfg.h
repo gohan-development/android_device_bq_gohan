@@ -22,6 +22,9 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 #define BTM_DEF_LOCAL_NAME   "Aquaris X5 Plus"
+
+#define PROC_BTWRITE_TIMER_TIMEOUT_MS = 0
+
 // Disables read remote device feature
 #define BTA_SKIP_BLE_READ_REMOTE_FEAT FALSE
 #define MAX_ACL_CONNECTIONS    7
