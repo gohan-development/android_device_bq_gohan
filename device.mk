@@ -214,6 +214,9 @@ PRODUCT_PACKAGES += \
     Tag \
     nfc_nci.pn54x.default
 
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0-impl
+
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
