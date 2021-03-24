@@ -14,8 +14,8 @@ etc/acdbdata/QRD/QRD_Headset_cal.acdb
 etc/acdbdata/QRD/QRD_Speaker_cal.acdb
 
 # Audio libraries
-etc/drc/drc_cfg_5.1.txt
-etc/drc/drc_cfg_AZ.txt
+etc/drc/drc_cfg_5.1.txt:vendor/etc/drc/drc_cfg_5.1.txt
+etc/drc/drc_cfg_AZ.txt:vendor/etc/drc/drc_cfg_AZ.txt
 etc/firmware/tfa98xx.cnt
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
