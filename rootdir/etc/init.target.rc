@@ -32,7 +32,6 @@ import init.bq.target.rc
 on early-init
     mkdir /firmware 0771 system system
     mkdir /system 0777 root root
-    symlink /data/tombstones /tombstones
     mkdir /dsp 0771 media media
 
 on fs
@@ -72,11 +71,6 @@ on late-fs
     mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs-data
-    mkdir /data/tombstones 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/audio_pp 0771 media audio
