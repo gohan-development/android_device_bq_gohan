@@ -405,8 +405,8 @@ vendor/lib/libRSDriver_adreno.so
 vendor/lib/libscale.so
 
 # Graphics firmware
-etc/firmware/a530_pfp.fw
-etc/firmware/a530_pm4.fw
+etc/firmware/a530_pfp.fw:vendor/firmware/a530_pfp.fw
+etc/firmware/a530_pm4.fw:vendor/firmware/a530_pm4.fw
 
 # IPA
 bin/ipacm-diag:vendor/bin/ipacm-diag
