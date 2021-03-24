@@ -333,13 +333,6 @@ vendor/lib/libadsp_default_listener.so
 etc/firmware/DE.o.msm8952:vendor/etc/firmware/DE.o.msm8952
 etc/firmware/DE.o.msm8976:vendor/etc/firmware/DE.o.msm8976
 
-# Fingerprint sensor
-lib/hw/fingerprint.default.so
-lib/hw/gxfingerprint.default.so
-lib/libfp_client.so
-lib/libfpnav.so
-lib/libfpservice.so
-
 # FM
 bin/fmconfig:vendor/bin/fmconfig
 bin/fm_qsoc_patches:vendor/bin/fm_qsoc_patches
