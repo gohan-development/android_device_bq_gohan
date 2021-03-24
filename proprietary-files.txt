@@ -331,8 +331,8 @@ lib/libfpservice.so
 vendor/lib/libadsp_default_listener.so
 
 # Firmware
-etc/firmware/DE.o.msm8952
-etc/firmware/DE.o.msm8976
+etc/firmware/DE.o.msm8952:vendor/etc/firmware/DE.o.msm8952
+etc/firmware/DE.o.msm8976:vendor/etc/firmware/DE.o.msm8976
 
 # Fingerprint sensor
 lib/hw/fingerprint.default.so
