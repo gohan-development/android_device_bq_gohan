@@ -62,7 +62,8 @@ vendor.audio.safx.pbe.enabled=true
 #property for AudioSphere Post processing
 vendor.audio.pp.asphere.enabled=false
 
-vendor.audio.dolby.ds2.enabled=true
+vendor.audio.dolby.ds2.enabled=false
+vendor.audio.dolby.ds2.hardbypass=false
 
 # Bluetooth
 qcom.bluetooth.soc=smd
