@@ -11,3 +11,6 @@
 
 # NFC
 /dev/pn547                                                            u:object_r:nfc_device:s0
+
+# WLAN fwpath
+/sys/module/wlan/parameters/fwpath u:object_r:sysfs_wlan_fwpath:s0
