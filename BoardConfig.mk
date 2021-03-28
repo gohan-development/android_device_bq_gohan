@@ -207,6 +207,9 @@ TARGET_RIL_VARIANT := caf
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
+# Shims
+TARGET_LD_SHIM_LIBS := /system/lib/libcamera_client.so|libcamera_parameters_shim.so
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
