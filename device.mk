@@ -115,6 +115,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
+    camera.device@3.2-impl \
     libcamera_parameters_shim \
     libshim_camera \
     libcamera_ppeiscore_shim \
