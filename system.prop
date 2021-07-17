@@ -81,7 +81,6 @@ ro.qualcomm.bluetooth.opp=true
 ro.qualcomm.bluetooth.pbap=true
 
 # Camera
-persist.camera.HAL3.enabled=1
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk
 
 #properties for limiting preview size in camera
