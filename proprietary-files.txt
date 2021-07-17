@@ -33,17 +33,9 @@ vendor/lib/libhwdaphal.so
 bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
 vendor/lib/libbtnv.so
 
-# BQ
-etc/permissions/bq.software.bqservices.system.xml
-etc/permissions/bq.software.qcom.m.gohan.xml
-etc/permissions/bq.software.qcom.m.xml
-etc/permissions/bq.software.qcom.n.gohan.xml
-etc/permissions/bq.software.qcom.n.xml
-
 # Camera
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 etc/camera/camera_config.xml
-etc/permissions/bq.software.qcom.camera.full_support.xml
 lib/hw/camera.msm8952.so:vendor/lib/hw/camera.msm8952.so
 lib/libarcsoft_beautyshot.so
 lib/libcam.beautyshot.so
