@@ -489,11 +489,11 @@ vendor/lib/libmm-qdcm.so
 
 # QMI
 bin/irsc_util:vendor/bin/irsc_util
-etc/data/dsi_config.xml
-etc/data/netmgr_config.xml
-etc/data/qmi_config.xml
+etc/data/dsi_config.xml:vendor/etc/data/dsi_config.xml
+etc/data/netmgr_config.xml:vendor/etc/data/netmgr_config.xml
+etc/data/qmi_config.xml:vendor/etc/data/qmi_config.xml
 vendor/lib/libdiag.so
-vendor/lib/libdsi_netctrl.so
+vendor/lib/libdsi_netctrl.so|eb7e9c40b06f0599d4ed4551563eceb64aa0152a
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
 vendor/lib/liblqe.so
@@ -512,8 +512,8 @@ vendor/lib/libsmemlog.so
 
 # Radio - from OnePlus 3
 -app/shutdownlistener/shutdownlistener.apk:vendor/app/shutdownlistener/shutdownlistener.apk
-bin/netmgrd:vendor/bin/netmgrd
-bin/qmuxd:vendor/bin/qmuxd
+bin/netmgrd:vendor/bin/netmgrd|2a04cd10ebb2d82e5ba00d5c48543016307338cf
+bin/qmuxd:vendor/bin/qmuxd|892f47740979b992454befd4d900df28bd7c20f7
 bin/radish:vendor/bin/radish
 bin/rmt_storage:vendor/bin/rmt_storage
 etc/permissions/qcnvitems.xml
