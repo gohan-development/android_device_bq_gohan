@@ -367,7 +367,7 @@ vendor/lib/hw/gatekeeper.msm8952.so
 # GPS
 bin/loc_launcher:vendor/bin/loc_launcher
 etc/permissions/com.qti.location.sdk.xml
-etc/permissions/com.qualcomm.location.xml
+etc/permissions/com.qualcomm.location.xml|ee15154d1727abb16a14d89eb5e7fdc252a93f05
 etc/permissions/izat.xt.srv.xml
 framework/com.android.location.provider.jar
 framework/com.qti.location.sdk.jar
