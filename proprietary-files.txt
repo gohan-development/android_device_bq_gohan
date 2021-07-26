@@ -29,6 +29,10 @@ vendor/lib/libaudcal.so
 vendor/lib/libaudioparsers.so
 vendor/lib/libhwdaphal.so
 
+# AptX - from Samsung Galaxy Note EDGE
+vendor/lib/libaptXHD_encoder.so|974c486e4ca03faa0713553d9dfe2995ac93e01c
+vendor/lib/libaptX_encoder.so|984739a0bc968e18f75ced205733fe3f51c2d4f0
+
 # Bluetooth
 bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
 vendor/lib/libbtnv.so
