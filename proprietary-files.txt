@@ -465,7 +465,6 @@ bin/adjust_serialno
 vendor/firmware/libpn547_fw.so
 
 # Network
--priv-app/QtiTetherService/QtiTetherService.apk
 vendor/lib/libconnctrl.so
 vendor/lib/libQtiTether.so
 
