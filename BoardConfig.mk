@@ -111,9 +111,6 @@ USE_PREFERRED_CAMERA_FORMAT := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
-# CNE
-BOARD_USES_QCNE := true
-
 # Dex pre-opt to speed up initial boot
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)

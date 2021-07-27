@@ -211,19 +211,6 @@ on post-fs-data
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
-    # Create the directories used by CnE subsystem
-    mkdir /data/connectivity 0771 system system
-    chown system system /data/connectivity
-    mkdir /data/connectivity/wqeclient 0771 system system
-    chown system system /data/connectivity/wqeclient
-
-    # Create the directories used by DPM subsystem
-    mkdir /data/dpm 0771 system system
-    chown system system /data/dpm
-
-    mkdir /data/dpm/nsrm 0771 system system
-    chown system system /data/dpm/nsrm
-
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
@@ -380,16 +367,6 @@ on property:vold.decrypt=trigger_restart_framework
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
-
-service cnd /system/vendor/bin/cnd
-    class main
-    socket cnd stream 660 root inet
-    group radio root wakelock
-
-service dpmd /system/vendor/bin/dpmd
-    class main
-    socket dpmd stream 660 root system
-    group system readproc
 
 # FM enable/disable triggers
 on property:hw.fm.init=1

@@ -125,10 +125,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service
 
-# Connectivity Engine support (CNE)
-PRODUCT_PACKAGES += \
-    libcnefeatureconfig
-
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8952 \
@@ -309,6 +305,7 @@ PRODUCT_PACKAGES += \
 
 # Rild
 PRODUCT_PACKAGES += \
+    libcnefeatureconfig \
     rild_socket
 
 # Seccomp
