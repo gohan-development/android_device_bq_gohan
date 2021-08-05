@@ -99,6 +99,7 @@ service qseecomd /system/vendor/bin/qseecomd
 service perfd /system/vendor/bin/perfd
    class main
    user root
+   group system
    disabled
    socket perfd seqpacket 0666 root system
 
