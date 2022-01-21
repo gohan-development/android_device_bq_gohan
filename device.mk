@@ -323,11 +323,6 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
 
-# Vendor prebuilts
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary/system/vendor/lib/libmmcamera_paaf_lib.so:$(TARGET_COPY_OUT_VENDOR)/lib/libmmcamera_paaf_lib.so \
-    $(LOCAL_PATH)/proprietary/system/vendor/lib/libmmcamera_ppeiscore.so:$(TARGET_COPY_OUT_VENDOR)/lib/libmmcamera_ppeiscore.so
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic

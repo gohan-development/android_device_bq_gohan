@@ -123,9 +123,11 @@ vendor/lib/libmmcamera_isp_sub_module.so
 vendor/lib/libmmcamera_isp_wb40.so
 vendor/lib/libmmcamera_llvd.so
 vendor/lib/libmmcamera_optizoom_lib.so
+vendor/lib/libmmcamera_paaf_lib.so|a0ae701a1ec8b81c699df92a50e802dab7943c3c
 vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_pdaf.so
 vendor/lib/libmmcamera_ppbase_module.so
+vendor/lib/libmmcamera_ppeiscore.so|6b3a196f29e0a3624d670156acc34b0f203236b2
 vendor/lib/libmmcamera_quadracfa.so
 vendor/lib/libmmcamera_semco_cat24c64_eeprom.so
 vendor/lib/libmmcamera_stillmore_lib.so
